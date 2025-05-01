@@ -1,0 +1,65 @@
+/* Registr.css */
+.LoginDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    margin-top: -50px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.LoginForm {
+    width: 100%;
+    max-width: 700px;  /* Увеличили ширину формы */
+    padding: 25px;    /* Уменьшили отступы внутри формы */
+    background-color: #a3d9a5;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.LoginForm div {
+    margin-bottom: 15px;  /* Уменьшили отступы между полями */
+}
+
+.LoginForm label {
+    display: block;
+    margin-bottom: 6px;  /* Уменьшили отступ под лейблами */
+    font-weight: bold;
+    font-size: 14px;     /* Слегка уменьшили размер текста */
+}
+
+.LoginForm input {
+    width: 100%;
+    padding: 8px;       /* Уменьшили высоту полей ввода */
+    border: 1px solid #a3d9a5;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.LoginForm button {
+    width: 100%;
+    padding: 10px;      /* Уменьшили высоту кнопки */
+    background-color: #2d6a4f#a3d9a5;
+    color: #a3d9a5;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 10px;   /* Добавили небольшой отступ сверху */
+}
+
+.LoginForm button:hover {
+    background-color: #45a049;
+}
+
+.Registrh1 {
+    text-align: center;
+    margin-bottom: 30px;  /* Уменьшили отступ под заголовком */
+    color: #333;
+    font-size: 24px;     /* Опционально: можно уменьшить размер заголовка */
+}

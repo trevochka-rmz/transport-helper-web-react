@@ -1,0 +1,64 @@
+/* Основной контейнер */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Контейнер для основного контента */
+.content-wrapper {
+    display: flex;
+    flex: 1;
+}
+
+/* Стили для maincontent */
+.maincontent {
+    flex: 1; /* Занимает всю доступную ширину */
+    background-color: #f8f9fa; /* Светлый фон */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 20px; /* Отступ от боковой панели */
+}
+
+/* Обновленный SideBar */
+.SideBar {
+    width: 250px;
+    height: auto;
+    min-height: 100%;
+    background-color: #b9eec5;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Обновленный Header */
+.header {
+    background-color: #d4edda;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Занимает всю высоту экрана */
+}
+
+.content-wrapper {
+    display: flex;
+    flex: 1; /* Занимает оставшееся пространство */
+    overflow: hidden; /* Скрываем прокрутку у родительского контейнера */
+}
+
+.maincontent {
+    flex: 1;
+    padding: 20px;
+    overflow: hidden; /* Скрываем прокрутку у основного контента */
+}

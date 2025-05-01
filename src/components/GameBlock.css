@@ -1,0 +1,57 @@
+.games {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Равномерное распределение пространства */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    background-color: #fff;
+    width: 170px; /* Фиксированная ширина блока */
+    height: 300px; /* Фиксированная высота блока */
+    padding: 10px;
+    text-align: center;
+    padding-top: 2px;
+}
+
+.games:hover {
+    transform: scale(1.05); /* Эффект увеличения при наведении */
+}
+
+.games img {
+    width: 150px; /* Фиксированная ширина изображения */
+    height: 150px; /* Фиксированная высота изображения */
+    object-fit: cover; /* Сохраняет пропорции изображения */
+    border-radius: 8px; /* Скругленные углы для изображения */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+.games h2 {
+    font-size: 1.2rem; /* Размер шрифта для названия игры */
+    margin: 10px 0;
+    color: #333;
+    height: 40px; /* Фиксированная высота для заголовка */
+    overflow: hidden; /* Скрываем лишний текст */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+    white-space: nowrap; /* Запрещаем перенос текста */
+    width: 100%; /* Занимает всю ширину контейнера */
+}
+
+.games button {
+    padding: 8px 16px; /* Размер кнопки */
+    background-color: #a3d9a5; /* Цвет фона кнопки */
+    color: #2d6a4f; /* Цвет текста кнопки */
+    border: none;
+    border-radius: 5px; /* Скругленные углы для кнопки */
+    cursor: pointer;
+    font-size: 0.9rem; /* Размер шрифта кнопки */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета */
+    width: 100%; /* Кнопка занимает всю ширину контейнера */
+}
+
+.games button:hover {
+    background-color: #81c784; /* Чуть более насыщенный зелёный */
+    transform: scale(1.05);
+}
