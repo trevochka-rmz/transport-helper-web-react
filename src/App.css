@@ -1,64 +1,121 @@
-/* Основной контейнер */
+/* Основные переменные (можно добавить в :root если используете) */
+:root {
+    --primary-dark: #1a2e35;
+    --primary: #2d4a53;
+    --primary-light: #3a606e;
+    --secondary: #5b8c5a;
+    --secondary-light: #7cb97d;
+    --accent: #4a8fe7;
+    --text-light: #e0e0e0;
+    --text-dark: #1a1a1a;
+    --background: #121f24;
+    --card-bg: #1e2b31;
+    --error: #e74c3c;
+}
+body {
+    background-color: var(--background);
+}
+/* Основной контейнер приложения */
 .app-container {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-color: var(--background);
+    color: var(--text-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Контейнер для основного контента */
+/* Контейнер для контента (header + main) */
 .content-wrapper {
     display: flex;
     flex: 1;
-}
-
-/* Стили для maincontent */
-.maincontent {
-    flex: 1; /* Занимает всю доступную ширину */
-    background-color: #f8f9fa; /* Светлый фон */
+    overflow: hidden;
+    background-color: var(--background);
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-left: 20px; /* Отступ от боковой панели */
+    gap: 20px;
 }
 
-/* Обновленный SideBar */
-.SideBar {
-    width: 250px;
-    height: auto;
-    min-height: 100%;
-    background-color: #b9eec5;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Обновленный Header */
-.header {
-    background-color: #d4edda;
-    padding: 15px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 10px;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
-}
-.app-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* Занимает всю высоту экрана */
-}
-
-.content-wrapper {
-    display: flex;
-    flex: 1; /* Занимает оставшееся пространство */
-    overflow: hidden; /* Скрываем прокрутку у родительского контейнера */
-}
-
+/* Основное содержимое */
 .maincontent {
     flex: 1;
     padding: 20px;
-    overflow: hidden; /* Скрываем прокрутку у основного контента */
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    border: 1px solid var(--primary);
+}
+
+/* Стили для Toast-уведомлений */
+.Toastify__toast-container {
+    width: 320px;
+}
+
+.Toastify__toast {
+    background: var(--primary);
+    color: var(--text-light);
+    border-radius: 8px;
+}
+
+.Toastify__toast--success {
+    background: var(--secondary);
+}
+
+.Toastify__toast--error {
+    background: var(--error);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .maincontent {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+}
+
+/* Стили для заголовков внутри maincontent */
+.maincontent h1,
+.maincontent h2,
+.maincontent h3 {
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.maincontent h1 {
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: 10px;
+}
+
+/* Стили для разделителей */
+.divider {
+    height: 1px;
+    background-color: var(--primary-light);
+    margin: 20px 0;
+    opacity: 0.3;
+}
+
+/* Общие стили для кнопок (если не определены в компонентах) */
+button {
+    background-color: var(--primary-light);
+    color: var(--text-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
 }

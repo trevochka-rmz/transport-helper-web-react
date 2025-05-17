@@ -1,11 +1,11 @@
-import GameLibList from "../components/GameLibList.jsx"
-function Library(){
-    return(
-        <div>
-        <h1>Библиотека</h1>
-        <GameLibList></GameLibList>
-        
+import ProductLibList from '../components/ProductLibList';
+
+function Library() {
+    return (
+        <div className="library-page">
+            <ProductLibList />
         </div>
-    )
+    );
 }
-export default Library
+
+export default Library;

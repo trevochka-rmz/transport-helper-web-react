@@ -1,0 +1,60 @@
+.divgame {
+    position: relative;
+    left: 0;
+    top: 0;
+    background-color: transparent;
+    height: auto;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.olgame {
+    display: grid;
+    grid-template-columns: repeat(
+        5,
+        minmax(0, 1fr)
+    ); /* Фиксировано 5 колонок */
+    gap: 35px; /* Увеличили отступ между карточками */
+    list-style: none;
+    margin: 0;
+    padding: 0 20px; /* Добавили боковые отступы */
+    width: 98%;
+    box-sizing: border-box;
+}
+
+/* Уменьшаем отступы на меньших экранах */
+@media (max-width: 1400px) {
+    .olgame {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .olgame {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .olgame {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .olgame {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 15px;
+        padding: 0 10px;
+    }
+}
+
+/* Дополнительно можно задать минимальную ширину карточки */
+.games {
+    min-width: 0; /* Важно для корректного сжатия */
+    width: 100%;
+}

@@ -1,83 +1,76 @@
-import "./Login.css"
-import { useState } from "react";
-import {notifySuccess, notifyError} from "../utils/notification.js"
-import users from "../data/users.js"
+import { useState } from 'react';
+import { notifySuccess, notifyError } from '../utils/notification.js';
+import users from '../data/users.js';
+import './Login.css';
 
-function Login({profile, setProfile, isRegistr, setIsRegistr}){
-    const [user, setUser] = useState({
-        login: "",
-        password: "",
-        password2: ""
-    })
+function Login({ setProfile, setIsRegistr }) {
+    const [credentials, setCredentials] = useState({
+        username: '',
+        password: '',
+    });
 
     const handleChange = (e) => {
-        const {name, value} = e.target
-        setUser(prev => ({
-            ...prev,
-            [name]: value
-        }))
-    }
+        const { name, value } = e.target;
+        setCredentials((prev) => ({ ...prev, [name]: value }));
+    };
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // Предотвращаем перезагрузку страницы
-        if (user.password2 !== user.password){
-            notifyError("Пароли не совпадают!");
-            return
+        e.preventDefault();
+
+        if (!credentials.username || !credentials.password) {
+            notifyError('Все поля должны быть заполнены!');
+            return;
         }
-        // Здесь можно добавить логику проверки пользователя
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].username === user.login && users[i].password === user.password) {
-                setProfile(users[i]);
-                setIsRegistr(true);
-                notifySuccess("Вы успешно вошли в аккаунт");
-                return;
-            }
+        console.log(credentials);
+        const user = users.find(
+            (u) =>
+                u.username === credentials.username &&
+                u.password === credentials.password
+        );
+
+        if (user) {
+            setProfile(user);
+            setIsRegistr(true);
+            notifySuccess(`Добро пожаловать, ${user.username}!`);
+        } else {
+            notifyError('Неверное имя пользователя или пароль');
         }
-        notifyError("Логин или пароль не верный");
     };
 
     return (
-        <div className="LoginDiv">
-            <h1 className="Loginh1">Вход</h1>
-            <form onSubmit={handleSubmit} className="LoginForm">
-                <div>
-                    <label htmlFor="username">Логин:</label>
-                    <input 
-                        type="text" 
-                        id="username"
-                        name="login"  // Добавлен атрибут name
-                        value={user.login}
-                        onChange={handleChange}
-                        placeholder="Введите логин"
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password">Пароль:</label>
-                    <input 
-                        type="password"
-                        id="password"
-                        name="password"  // Добавлен атрибут name
-                        value={user.password}
-                        onChange={handleChange}
-                        placeholder="Введите пароль" 
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password2">Пароль повторно:</label>
-                    <input 
-                        type="password"
-                        id="password2"
-                        name="password2"  // Добавлен атрибут name
-                        value={user.password2}
-                        onChange={handleChange}
-                        placeholder="Введите пароль повторно" 
-                    />
-                </div>
-                
-                <button type="submit">Вход</button>
-            </form>
+        <div className="auth-container">
+            <div className="auth-card">
+                <h1 className="auth-title">Вход в систему</h1>
+                <form onSubmit={handleSubmit} className="auth-form">
+                    <div className="form-group">
+                        <label htmlFor="username">Имя пользователя</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            value={credentials.username}
+                            onChange={handleChange}
+                            placeholder="Введите имя"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="password">Пароль</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={credentials.password}
+                            onChange={handleChange}
+                            placeholder="Введите пароль"
+                        />
+                    </div>
+                    <button type="submit" className="auth-button">
+                        Войти
+                    </button>
+                </form>
+            </div>
         </div>
-    )
+    );
 }
 
-export default Login
+export default Login;

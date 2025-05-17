@@ -1,65 +1,94 @@
-/* Registr.css */
-.LoginDiv {
+/* Общие стили для форм авторизации */
+.auth-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    width: 100%;
-    margin-top: -50px;
+    background-color: #121f24;
     padding: 20px;
-    box-sizing: border-box;
-    background-color: white;
+    margin-top: -200px;
 }
 
-.LoginForm {
+.auth-card {
     width: 100%;
-    max-width: 700px;  /* Увеличили ширину формы */
-    padding: 25px;    /* Уменьшили отступы внутри формы */
-    background-color: #a3d9a5;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    background-color: #1e2b31;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #3a606e;
 }
 
-.LoginForm div {
-    margin-bottom: 15px;  /* Уменьшили отступы между полями */
-}
-
-.LoginForm label {
-    display: block;
-    margin-bottom: 6px;  /* Уменьшили отступ под лейблами */
-    font-weight: bold;
-    font-size: 14px;     /* Слегка уменьшили размер текста */
-}
-
-.LoginForm input {
-    width: 100%;
-    padding: 8px;       /* Уменьшили высоту полей ввода */
-    border: 1px solid #a3d9a5;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px;
-}
-
-.LoginForm button {
-    width: 100%;
-    padding: 10px;      /* Уменьшили высоту кнопки */
-    background-color: #2d6a4f#a3d9a5;
-    color: #a3d9a5;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 15px;
-    margin-top: 10px;   /* Добавили небольшой отступ сверху */
-}
-
-.LoginForm button:hover {
-    background-color: #45a049;
-}
-
-.Registrh1 {
+.auth-title {
+    color: #e0e0e0;
     text-align: center;
-    margin-bottom: 30px;  /* Уменьшили отступ под заголовком */
-    color: #333;
-    font-size: 24px;     /* Опционально: можно уменьшить размер заголовка */
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #b8c2c6;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.form-group input {
+    padding: 12px 15px;
+    background-color: #2d4a53;
+    border: 1px solid #3a606e;
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #5b8c5a;
+    box-shadow: 0 0 0 2px rgba(91, 140, 90, 0.2);
+}
+
+.auth-button {
+    padding: 12px;
+    background-color: #5b8c5a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.auth-button:hover {
+    background-color: #7cb97d;
+    transform: translateY(-2px);
+}
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 20px;
+    }
+
+    .auth-title {
+        font-size: 1.5rem;
+    }
 }

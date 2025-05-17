@@ -1,49 +1,66 @@
 .SideBar {
-    background-color: #b9eec5; 
-    padding: 20px;
+    background-color: #1a2e35;
+    padding: 20px 15px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрирование по горизонтали */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 15%;
-    height: 640px;
-}
-
-/* Общий стиль для всех кнопок */
-.SideBarbutton {
-    background-color: #a3d9a5;
-    color: #2d6a4f;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px 0; /* Отступ между кнопками */
-    font-size: 16px;
-    font-weight: bold;
     border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    width: 170px;
-    height: 50px;
-    box-sizing: border-box;
-    text-align: center;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
+    height: calc(100vh - 100px);
+    position: sticky;
+    top: 20px;
+    width: 300px;
 }
 
-/* Контейнер для кнопок */
 .SideBar section {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 8px;
     width: 100%;
-    margin-top: 20px; /* Отступ от верха */
 }
 
-/* Эффекты */
+.SideBarbutton {
+    background-color: #2d4a53;
+    color: #e0e0e0;
+    border: none;
+    padding: 12px 20px;
+    margin: 4px 0;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .SideBarbutton:hover {
-    background-color: #81c784;
-    transform: scale(1.05);
+    background-color: #4a8fe7;
+    transform: translateX(5px);
 }
 
 .SideBarbutton:active {
-    background-color: #66bb6a;
     transform: scale(0.98);
+}
+
+/* Стили для активной ссылки */
+.SideBarbutton.active {
+    background-color: #5b8c5a;
+    color: white;
+    font-weight: 600;
+}
+
+/* Иконки можно добавить через псевдоэлементы */
+.SideBarbutton::before {
+    content: '→';
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.SideBarbutton:hover::before {
+    opacity: 1;
+    margin-right: 5px;
 }
