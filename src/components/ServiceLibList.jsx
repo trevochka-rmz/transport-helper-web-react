@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
-import { basketServices, removeFromServices } from '../data/basketServices.js';
-import { orders, removeFromOrder } from '../data/orders.js';
+import {
+    basketServices,
+    removeFromServices,
+    clearBaskerService,
+} from '../data/basketServices.js';
+import { orders, removeFromOrder, clearOrders } from '../data/orders.js';
 import ServiceLibBlock from './ServiceLibBlock.jsx';
 import { notifySuccess, notifyError } from '../utils/notification.js';
 function ServiceLibList() {
@@ -15,6 +19,18 @@ function ServiceLibList() {
         removeFromOrder(serviceName);
         setItems(basketServices());
         notifySuccess(`${serviceName} был успешно удален`);
+    };
+
+    const handleCheckout = () => {
+        if (items.length === 0) {
+            notifyError('Корзина пуста');
+            return;
+        }
+
+        clearBaskerService();
+        clearOrders();
+        setItems([]);
+        notifySuccess('Заказ успешно оформлен! Корзина очищена');
     };
 
     const totalPrice = items.reduce(
@@ -34,7 +50,16 @@ function ServiceLibList() {
                     />
                 ))}
             </ol>
-            <div className="total-price">Итого: {totalPrice} ₽</div>
+            <div className="checkout-section">
+                <button
+                    className="checkout-button"
+                    onClick={handleCheckout}
+                    disabled={items.length === 0}
+                >
+                    Оформить заказ
+                </button>
+                <div className="total-price">Итого: {totalPrice} ₽</div>
+            </div>
         </div>
     );
 }

@@ -8,6 +8,7 @@ import LibraryService from './pages/LibraryService.jsx';
 import OrdersPage from './pages/OrdersPage.jsx';
 import users from './data/users.js';
 import Login from './pages/Login.jsx';
+import Schedule from './pages/Schedule.jsx';
 import { useState } from 'react';
 import './App.css';
 import {
@@ -33,7 +34,7 @@ function App() {
                     user={profile}
                 />
                 <div className="content-wrapper">
-                    <SideBar isRegistr={isRegistr} />
+                    <SideBar user={profile} isRegistr={isRegistr} />
                     <div className="maincontent">
                         <Routes>
                             <Route path="/library" element={<Library />} />
@@ -55,6 +56,16 @@ function App() {
                                 path="/catalog-services"
                                 element={
                                     <CatalogServices
+                                        isRegistr={isRegistr}
+                                        setUser={setProfile}
+                                        user={profile}
+                                    />
+                                }
+                            />
+                            <Route
+                                path="/schedule"
+                                element={
+                                    <Schedule
                                         isRegistr={isRegistr}
                                         setUser={setProfile}
                                         user={profile}

@@ -6,3 +6,7 @@ export const removeFromBasket = (productName) => {
     _basket = _basket.filter((item) => item.name !== productName);
     return basket();
 };
+
+export const clearBasket = () => {
+    _basket = [];
+};

@@ -1,20 +1,34 @@
 import { useState, useEffect } from 'react';
-import { basket, removeFromBasket } from '../data/basket.js';
-import { orders, removeFromOrder } from '../data/orders.js';
+import { basket, removeFromBasket, clearBasket } from '../data/basket.js';
+import { orders, removeFromOrder, clearOrders } from '../data/orders.js';
 import ProductLibBlock from './ProductLibBlock.jsx';
 import { notifySuccess, notifyError } from '../utils/notification.js';
 import './ProductLibList.css';
 
 function ProductLibList() {
     const [items, setItems] = useState([]);
+
     useEffect(() => {
         setItems(basket());
     }, []);
+
     const handleDelete = (productName) => {
         removeFromBasket(productName);
         removeFromOrder(productName);
         setItems(basket());
         notifySuccess(`${productName} был успешно удален`);
+    };
+
+    const handleCheckout = () => {
+        if (items.length === 0) {
+            notifyError('Корзина пуста');
+            return;
+        }
+
+        clearBasket();
+        clearOrders();
+        setItems([]);
+        notifySuccess('Заказ успешно оформлен! Корзина очищена');
     };
 
     const totalPrice = items.reduce(
@@ -34,7 +48,16 @@ function ProductLibList() {
                     />
                 ))}
             </ol>
-            <div className="total-price">Итого: {totalPrice} ₽</div>
+            <div className="checkout-section">
+                <div className="total-price">Итого: {totalPrice} ₽</div>
+                <button
+                    className="checkout-button"
+                    onClick={handleCheckout}
+                    disabled={items.length === 0}
+                >
+                    Оформить заказ
+                </button>
+            </div>
         </div>
     );
 }

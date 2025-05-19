@@ -19,6 +19,7 @@ function ServiceList({ user, setUser, isRegistr }) {
         } else if (user.balance >= services[indexService].price) {
             _basketService.push({
                 number_passenger: user.number_passenger,
+                images_path: services[indexService].images_path,
                 type: 'Услуга',
                 name: services[indexService].name,
                 price: services[indexService].price,
@@ -27,6 +28,7 @@ function ServiceList({ user, setUser, isRegistr }) {
             _orders.push({
                 number_passenger: user.number_passenger,
                 name: services[indexService].name,
+                images_path: services[indexService].images_path,
                 type: 'Услуга',
                 price: services[indexService].price,
                 count: 1,

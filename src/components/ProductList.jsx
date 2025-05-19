@@ -26,6 +26,7 @@ function ProductList({ user, setUser, isRegistr }) {
             _basket.push({
                 number_passenger: user.number_passenger,
                 name: products[indexProduct].name,
+                images_path: products[indexProduct].images_path,
                 type: 'Товар',
                 price: products[indexProduct].price,
                 count: 1,
@@ -33,6 +34,7 @@ function ProductList({ user, setUser, isRegistr }) {
             _orders.push({
                 number_passenger: user.number_passenger,
                 name: products[indexProduct].name,
+                images_path: products[indexProduct].images_path,
                 type: 'Товар',
                 price: products[indexProduct].price,
                 count: 1,

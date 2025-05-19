@@ -1,7 +1,7 @@
 import './SideBar.css';
 import { NavLink } from 'react-router-dom';
 
-function SideBar({ isRegistr }) {
+function SideBar({ user, isRegistr }) {
     return (
         <div className="SideBar">
             {isRegistr ? (
@@ -26,11 +26,20 @@ function SideBar({ isRegistr }) {
                             Каталог услуг
                         </button>
                     </NavLink>
-                    <NavLink to="/orders">
+                    <NavLink to="/schedule">
                         <button className="SideBarbutton" type="button">
-                            Заказы
+                            Расписание
                         </button>
                     </NavLink>
+                    {user.role === 'работник' ? (
+                        <NavLink to="/orders">
+                            <button className="SideBarbutton" type="button">
+                                Заказы
+                            </button>
+                        </NavLink>
+                    ) : (
+                        <div></div>
+                    )}
                 </section>
             ) : (
                 <section>

@@ -31,3 +31,33 @@
     padding-top: 15px;
     border-top: 1px solid #3a606e;
 }
+.checkout-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #3a606e;
+}
+
+.checkout-button {
+    background-color: #4a8fe7;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.checkout-button:hover {
+    background-color: #3a7bd5;
+    transform: translateY(-2px);
+}
+
+.checkout-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+}
